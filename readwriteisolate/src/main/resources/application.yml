@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    master:
+      jdbc-url: jdbc:mysql://localhost:3306/test1?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&useSSL=false&serverTimezone=Asia/Shanghai&serverTimezone=UTC
+      username: root
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    slave1:
+      jdbc-url: jdbc:mysql://localhost:3306/test1?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&useSSL=false&serverTimezone=Asia/Shanghai&serverTimezone=UTC
+      username: mpyread1   # 只读账户
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    slave2:
+      jdbc-url: jdbc:mysql://localhost:3306/test1?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&useSSL=false&serverTimezone=Asia/Shanghai&serverTimezone=UTC
+      username: mpyread   # 只读账户
+      password: 123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+
+#MyBatis
+#mybatis:
+#  mapper-locations: classpath*:mapper/*.xml
+#  type-aliases-package: cn.mpy.readwriteisolate.entity
