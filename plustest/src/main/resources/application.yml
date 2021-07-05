@@ -1,0 +1,43 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://ip:3307/test?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+  shardingsphere:
+    datasource:
+      names: master,slave1,slave2
+      master:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://ip:3307/test
+        username: root
+        password: 123456
+      slave1:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://ip:3307/test
+        username: root
+        password: 123456
+      slave2:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: jdbc:mysql://ip:3307/test
+        username: root
+        password: 123456
+    masterslave:
+      load-balance-algorithm-type: round_robin
+      name: ms
+      master-data-source-name: master
+      slave-data-source-names: slave1,slave2
+    props:
+      sql:
+        show: true
+
+#配置日志
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
